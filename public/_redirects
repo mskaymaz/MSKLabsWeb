@@ -1,4 +1,6 @@
 # Cloudflare Pages 301 Permanent Redirects for SEO & Search Console
+
+# Deprecated legacy aliases
 /aniltilar https://msklabs.org/blog/anilts 301
 /aniltilar/ https://msklabs.org/blog/anilts 301
 /aniltilar/* https://msklabs.org/blog/anilts 301
@@ -6,3 +8,27 @@
 /v1/apps https://msklabs.org/apps 301
 /v1/apps/ https://msklabs.org/apps 301
 /v1/apps/* https://msklabs.org/apps 301
+
+# Blog canonicalization
+/blog https://msklabs.org/blog/ 301
+/blog/blog https://msklabs.org/blog/ 301
+/blog/blog/ https://msklabs.org/blog/ 301
+/blog/blog.html https://msklabs.org/blog/ 301
+
+# Clean URL 301s for historical .html crawls
+/download.html https://msklabs.org/download 301
+/apps.html https://msklabs.org/apps 301
+/terms.html https://msklabs.org/terms 301
+/privacy.html https://msklabs.org/privacy 301
+/contact.html https://msklabs.org/contact 301
+/about.html https://msklabs.org/about 301
+/bizkimiz.html https://msklabs.org/bizkimiz 301
+/destek.html https://msklabs.org/destek 301
+/faq.html https://msklabs.org/faq 301
+/changelog.html https://msklabs.org/changelog 301
+/roadmap.html https://msklabs.org/roadmap 301
+/vitrin.html https://msklabs.org/vitrin 301
+/app.html https://msklabs.org/app 301
+
+# Cloudflare Pages 200 rewrite for blog deep links
+/blog/* /blog/index.html 200
