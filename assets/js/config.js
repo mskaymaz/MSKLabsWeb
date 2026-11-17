@@ -22,7 +22,7 @@ window.SITE_CONFIG = {
     deskpilot: { name: "DeskPilot Pro", storeUrlWindows: "https://msklabs.org/dl.html?app=deskpilot" },
     gc_pil_uyari: { name: "GC Pil Uyarı", storeUrlAndroid: "https://play.google.com/store/apps/details?id=org.msklabs.gcpiluyari" }
   },
-  catalogUrl: "https://raw.githubusercontent.com/mskaymaz/AllAppReleaseWork/main/app_catalog.json",
+  catalogUrl: "https://raw.githubusercontent.com/mskaymaz/MSKLabsApps/main/app_catalog.json",
   fetchCatalog: function(customUrl) {
     var url = customUrl || this.catalogUrl;
     if (typeof fetch === 'undefined') return Promise.resolve(this.getAppsData());
