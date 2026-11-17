@@ -30,5 +30,3 @@
 /vitrin.html https://msklabs.org/vitrin 301
 /app.html https://msklabs.org/app 301
 
-# Cloudflare Pages 200 rewrite for blog deep links
-/blog/* /blog/index.html 200
