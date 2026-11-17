@@ -350,25 +350,26 @@
         position: static !important;
         display: none;
         background: transparent !important;
-        color: #f59e0b !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
+        color: rgba(245, 158, 11, 0.68) !important;
+        font-size: 10.5px !important;
+        font-weight: 600 !important;
         line-height: 1 !important;
         margin-right: 2px !important;
         padding: 0 !important;
         pointer-events: none !important;
+        transition: color 0.2s ease !important;
       }
       .announcement-trigger-btn:hover .msk-ann-badge,
       .announcement-trigger-btn:hover #mskAnnBadge {
-        color: #d97706 !important;
+        color: rgba(217, 119, 6, 0.9) !important;
       }
       [data-theme="dark"] .msk-ann-badge,
       [data-theme="dark"] #mskAnnBadge {
-        color: #f59e0b !important;
+        color: rgba(245, 158, 11, 0.68) !important;
       }
       [data-theme="dark"] .announcement-trigger-btn:hover .msk-ann-badge,
       [data-theme="dark"] .announcement-trigger-btn:hover #mskAnnBadge {
-        color: #fbbf24 !important;
+        color: rgba(251, 191, 36, 0.9) !important;
       }
 
       /* Header 📢 Popover Dropdown */
@@ -974,7 +975,7 @@
 
     badges.forEach(function (b) {
       b.style.display = 'inline-block';
-      b.textContent = '(' + activeItems.length + ')';
+      b.textContent = activeItems.length;
     });
     if (typeof window.syncAnnouncementPosition === 'function') {
       window.syncAnnouncementPosition();

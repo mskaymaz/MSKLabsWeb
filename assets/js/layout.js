@@ -203,7 +203,7 @@
             <div class="header-action-toggles">
               <!-- Mobil Duyuru Butonu (Yalnızca <=768px ekranda hamburger yanında görünür) -->
               <button id="mskAnnTriggerBtnMob" class="announcement-trigger-btn ann-trigger-mobile" style="display:none; align-items:center; justify-content:center; gap:2px; background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer; padding:0; margin:0; height:26px; color:inherit;" title="Duyurular &amp; Kampanyalar" aria-label="Duyurular">
-                <span class="msk-ann-badge" style="display:none; color:#f59e0b; font-size:11px; font-weight:700; line-height:1; pointer-events:none;">(0)</span>
+                <span class="msk-ann-badge" style="display:none; color:rgba(245, 158, 11, 0.7); font-size:10.5px; font-weight:600; line-height:1; pointer-events:none;">0</span>
                 <svg class="ann-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block; flex-shrink:0;">
                   <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
                   <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/>
@@ -223,7 +223,7 @@
           <!-- Masaüstü Duyuru Butonu (İkinci satırda sağda tema ikonu hizasında, linkleri itelemez) -->
           <div class="header-nav-announcement" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; z-index: 2;">
             <button id="mskAnnTriggerBtnDesk" class="announcement-trigger-btn ann-trigger-desktop" style="display:none; align-items:center; justify-content:center; gap:2px; background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer; padding:0; margin:0; height:26px; color:inherit;" title="Duyurular &amp; Kampanyalar" aria-label="Duyurular">
-              <span class="msk-ann-badge" id="mskAnnBadge" style="display:none; color:#f59e0b; font-size:11px; font-weight:700; line-height:1; pointer-events:none;">(0)</span>
+              <span class="msk-ann-badge" id="mskAnnBadge" style="display:none; color:rgba(245, 158, 11, 0.7); font-size:10.5px; font-weight:600; line-height:1; pointer-events:none;">0</span>
               <svg class="ann-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block; flex-shrink:0;">
                 <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
                 <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/>
