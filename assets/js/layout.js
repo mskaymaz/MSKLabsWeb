@@ -682,7 +682,7 @@
     try {
       if (document.querySelector('script[data-msk-announcement]')) return;
       var a = document.createElement('script');
-      a.src = basePath + 'assets/js/announcement-loader.js?v=20261117_02';
+      a.src = basePath + 'assets/js/announcement-loader.js?v=20261118_01';
       a.defer = true;
       a.setAttribute('data-msk-announcement', 'true');
       (document.head || document.documentElement).appendChild(a);

@@ -268,7 +268,7 @@
     }
 
     // Çok Dilli Dinamik Güncelleyici (Sync / Rotate / Fixed)
-    function updateBannerLanguage(newLang) {
+    function updateBannerLanguage(newLang, delaySec) {
       currentLang = newLang;
       var newContent = getItemContent(item, newLang);
       if (!newContent || !newContent.trim()) return;
@@ -279,11 +279,14 @@
         var speedSec = curSpeed === 'slow' ? '30s' : curSpeed === 'fast' ? '12s' : '20s';
         var isArabic = (newLang === 'ar');
         var isRev = isArabic ? ((item.tickerDirection || meta.tickerDirection) !== 'ltr') : ((item.tickerDirection || meta.tickerDirection) === 'ltr');
-        var animStyle = 'mskMarqueeRTL ' + speedSec + ' linear infinite ' + (isRev ? 'reverse' : 'normal');
+        var delayPart = (typeof delaySec === 'number' && delaySec !== 0) ? (' ' + delaySec + 's') : '';
+        var animStyle = 'mskMarqueeRTL ' + speedSec + ' linear infinite' + delayPart + ' ' + (isRev ? 'reverse' : 'normal');
         var track = container.querySelector('.msk-ticker-track');
         if (track) {
           track.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
           track.innerHTML = formatTickerHtml(newContent);
+          track.style.animation = 'none';
+          void track.offsetWidth;
           track.style.animation = animStyle;
         }
       } else {
@@ -296,7 +299,41 @@
       }
     }
 
-    var onLangChange = null, htmlObs = null, rotTimer = null;
+    var onLangChange = null, htmlObs = null, rotTimer = null, gapTimer = null;
+
+    if (isTicker) {
+      var trackEl = container.querySelector('.msk-ticker-track');
+      if (trackEl) {
+        var rotLangIdx = 0;
+        trackEl.addEventListener('animationiteration', function () {
+          if (gapTimer) clearTimeout(gapTimer);
+          var nextLang = currentLang;
+          if (langMode === 'rotate' && rotateLangs.length > 1) {
+            rotLangIdx = (rotLangIdx + 1) % rotateLangs.length;
+            nextLang = rotateLangs[rotLangIdx];
+          }
+          var isCurrAr = (currentLang === 'ar');
+          var isNextAr = (nextLang === 'ar');
+          var isOpposite = (isCurrAr !== isNextAr);
+          var rawGap = (typeof item.tickerGap === 'number') ? item.tickerGap : ((typeof meta.tickerGap === 'number') ? meta.tickerGap : 0);
+          var effectiveGap = isOpposite ? Math.max(0, rawGap) : rawGap;
+
+          if (effectiveGap > 0) {
+            trackEl.style.animation = 'none';
+            trackEl.style.visibility = 'hidden';
+            gapTimer = setTimeout(function () {
+              trackEl.style.visibility = 'visible';
+              updateBannerLanguage(nextLang);
+            }, effectiveGap * 1000);
+          } else if (effectiveGap < 0 && !isOpposite) {
+            updateBannerLanguage(nextLang, effectiveGap);
+          } else {
+            updateBannerLanguage(nextLang);
+          }
+        });
+      }
+    }
+
     if (langMode === 'sync') {
       onLangChange = function (ev) {
         var l = (ev && ev.detail && ev.detail.lang) ? ev.detail.lang : getLang();
@@ -310,29 +347,20 @@
         });
         htmlObs.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
       }
-    } else if (langMode === 'rotate' && rotateLangs.length > 1) {
+    } else if (langMode === 'rotate' && rotateLangs.length > 1 && !isTicker) {
       var rotLangIdx = 0;
-      if (isTicker) {
-        var trackEl = container.querySelector('.msk-ticker-track');
-        if (trackEl) {
-          trackEl.addEventListener('animationiteration', function () {
-            rotLangIdx = (rotLangIdx + 1) % rotateLangs.length;
-            updateBannerLanguage(rotateLangs[rotLangIdx]);
-          });
-        }
-      } else {
-        rotTimer = setInterval(function () {
-          if (document.hidden) return;
-          rotLangIdx = (rotLangIdx + 1) % rotateLangs.length;
-          updateBannerLanguage(rotateLangs[rotLangIdx]);
-        }, 7000);
-      }
+      rotTimer = setInterval(function () {
+        if (document.hidden) return;
+        rotLangIdx = (rotLangIdx + 1) % rotateLangs.length;
+        updateBannerLanguage(rotateLangs[rotLangIdx]);
+      }, 7000);
     }
 
     container._cleanup = function () {
       if (onLangChange) window.removeEventListener('languageChanged', onLangChange);
       if (htmlObs) htmlObs.disconnect();
       if (rotTimer) clearInterval(rotTimer);
+      if (gapTimer) clearTimeout(gapTimer);
     };
   }
 
