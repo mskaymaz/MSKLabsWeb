@@ -1,4 +1,5 @@
 /* MSK Labs - Dynamic Announcements & Flyout Styles */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap');
 
 /* Flyout Üst Şerit (Sayfayı asla aşağı itmez, sabit panelin altında yüzer) */
 .msk-announcement-hanging {
@@ -18,31 +19,88 @@
   from { transform: translateY(-100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
-.msk-announcement-hanging .msk-ann-inner {
+.msk-ann-outer {
   max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+.msk-ann-inner {
+  max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
   line-height: 1.15;
   overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+}
+.msk-ann-actions {
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  flex-shrink: 0;
+}
+[dir="rtl"] .msk-ann-actions,
+.msk-announcement-hanging[dir="rtl"] .msk-ann-actions {
+  right: auto;
+  left: 0;
+}
+@media (max-width: 1200px) {
+  .msk-ann-outer {
+    padding: 0 3px;
+  }
+  .msk-ann-actions {
+    right: 3px;
+    left: auto;
+  }
+  [dir="rtl"] .msk-ann-actions,
+  .msk-announcement-hanging[dir="rtl"] .msk-ann-actions {
+    right: auto;
+    left: 3px;
+  }
+  .msk-ann-inner {
+    padding-right: 28px;
+    padding-left: 0;
+  }
+  [dir="rtl"] .msk-ann-inner,
+  .msk-announcement-hanging[dir="rtl"] .msk-ann-inner {
+    padding-left: 28px;
+    padding-right: 0;
+  }
 }
 
 /* Kayan Yazı (Ticker / Marquee) */
 .msk-ticker-wrap {
+  flex: 1;
+  min-width: 0;
   width: 100%;
+  direction: ltr;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   display: flex;
   align-items: center;
+  container-type: inline-size;
 }
 .msk-ticker-track {
   display: inline-flex;
+  flex-shrink: 0;
+  width: max-content;
   align-items: center;
   white-space: pre;
-  padding-left: 100%;
   will-change: transform;
   line-height: 1.15;
 }
@@ -56,13 +114,23 @@
 .msk-ticker-track:hover {
   animation-play-state: paused !important;
 }
+/* Sağdan Sola (TR / EN - Marquee To Left) */
+@keyframes mskMarqueeToLeft {
+  0% { transform: translate3d(100cqw, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+/* Soldan Sağa (Arapça - Marquee To Right) */
+@keyframes mskMarqueeToRight {
+  0% { transform: translate3d(-100%, 0, 0); }
+  100% { transform: translate3d(100cqw, 0, 0); }
+}
 @keyframes mskMarqueeRTL {
-  0% { transform: translate3d(0, 0, 0); }
+  0% { transform: translate3d(100cqw, 0, 0); }
   100% { transform: translate3d(-100%, 0, 0); }
 }
 @keyframes mskMarqueeLTR {
   0% { transform: translate3d(-100%, 0, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(100cqw, 0, 0); }
 }
 .msk-ann-content {
   white-space: pre-wrap !important;

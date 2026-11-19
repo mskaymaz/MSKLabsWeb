@@ -206,7 +206,8 @@
         var isArabic = (currentLang === 'ar');
         var isRev = isArabic ? ((item.tickerDirection || meta.tickerDirection) !== 'ltr') : ((item.tickerDirection || meta.tickerDirection) === 'ltr');
         var speedSec = curSpeed === 'slow' ? '30s' : curSpeed === 'fast' ? '12s' : '20s';
-        var animStyle = 'mskMarqueeRTL ' + speedSec + ' linear infinite ' + (isRev ? 'reverse' : 'normal');
+        var animName = isRev ? 'mskMarqueeToRight' : 'mskMarqueeToLeft';
+        var animStyle = animName + ' ' + speedSec + ' linear infinite';
         bodyHtml = '<div class="msk-ticker-wrap"><div class="msk-ticker-track" dir="' + (isArabic ? 'rtl' : 'ltr') + '" style="animation: ' + animStyle + ';">' + formatTickerHtml(content) + '</div></div>';
       } else if (isRotator) {
         var tempDiv = document.createElement('div');
@@ -222,9 +223,11 @@
 
       container.innerHTML = `
         <div class="msk-ann-bg-layer" style="position:absolute; inset:0; z-index:0; pointer-events:none; background:${currentBg}; opacity:${bgOpacityVal};"></div>
-        <div class="msk-ann-inner" style="position:relative; z-index:1; opacity:${textOpacityVal}; padding:${padY}px 12px; align-items:center; box-sizing:border-box;">
-          ${bodyHtml}
-          <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">${ctaHtml}${closeBtnHtml}</div>
+        <div class="msk-ann-outer" style="position:relative; z-index:1; opacity:${textOpacityVal}; padding-top:${padY}px; padding-bottom:${padY}px;">
+          <div class="msk-ann-inner">
+            ${bodyHtml}
+          </div>
+          <div class="msk-ann-actions">${ctaHtml}${closeBtnHtml}</div>
         </div>
       `;
       document.body.appendChild(container);
@@ -279,8 +282,9 @@
         var speedSec = curSpeed === 'slow' ? '30s' : curSpeed === 'fast' ? '12s' : '20s';
         var isArabic = (newLang === 'ar');
         var isRev = isArabic ? ((item.tickerDirection || meta.tickerDirection) !== 'ltr') : ((item.tickerDirection || meta.tickerDirection) === 'ltr');
+        var animName = isRev ? 'mskMarqueeToRight' : 'mskMarqueeToLeft';
         var delayPart = (typeof delaySec === 'number' && delaySec !== 0) ? (' ' + delaySec + 's') : '';
-        var animStyle = 'mskMarqueeRTL ' + speedSec + ' linear infinite' + delayPart + ' ' + (isRev ? 'reverse' : 'normal');
+        var animStyle = animName + ' ' + speedSec + ' linear infinite' + delayPart;
         var track = container.querySelector('.msk-ticker-track');
         if (track) {
           track.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
