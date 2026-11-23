@@ -85,8 +85,8 @@ Tüm modüller ssets/css/global.css?v=25 ile %100 uyumlu, destek.html temiz bey
 ## 🔐 4. Alınan Özel Güvenlik, Tasarım ve Kodlama Kuralları
 
 ### 7️⃣ Mobil Uygulama & Web Reklam Stratejisi Kuralı / Mobile App & Web Monetization Policy Rule
-* **Türkçe:** Tüm MSK Labs mobil uygulamaları (Haydi Namaza, RekatSay, Emekli Sayaç, DeskPilot vb.) **%100 ÜCRETSİZ ve REKLAMSIZDIR.** Mobil uygulamaların içine hiçbir şartta reklam konulmaz. Reklamlar sadece web platformu (msklabs.org) üzerindeki reklam alanlarında yayınlanır.
-* **English:** All MSK Labs mobile applications are strictly **100% FREE and AD-FREE**. No in-app advertisements shall ever be placed inside mobile apps. Ad units are strictly restricted to the official web portal (msklabs.org).
+* **Türkçe:** Tüm MSK Labs uygulamaları (Haydi Namaza, RekatSay, Emekli Sayaç, DeskPilot vb.) **%100 ÜCRETSİZDİR**. Hem web platformunda (`msklabs.org`) hem de uygulamalarda sürdürülebilirlik için reklam bulunabilir; ancak uygulamalarda reklamlar yalnızca pasif alanlarda (ayarlar, hakkında vb. sayfalar) yer alır. Kullanıcının aktif kullandığı ekranlara ve uygulama kullanma esnasında rahatsız olacağı akışlara kesinlikle reklam konulmaz.
+* **English:** All MSK Labs applications are **100% FREE**. Advertisements may appear on both the official web portal (`msklabs.org`) and inside applications for sustainability; however, in-app ads are strictly restricted to passive areas (such as settings or about pages) and are never placed in active usage screens or workflows where they would interrupt or disturb the user.
 
 ## 🔐 4. Core Security, Design & AI Assistance Guidelines
 

@@ -146,7 +146,7 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'pwa-192x192.png', 'pwa-512x512.png', 'img/MSKLabs_favicon.png'],
       manifest: {
-        name: 'MSK Labs — Ücretsiz & Reklamsız Uygulamalar',
+        name: 'MSK Labs — Ücretsiz & Kullanıcı Odaklı Uygulamalar',
         short_name: 'MSK Labs',
         description: 'MSK Labs bağımsız mobil ve masaüstü yazılım ekosistemi ve yayın platformu',
         theme_color: '#0f172a',

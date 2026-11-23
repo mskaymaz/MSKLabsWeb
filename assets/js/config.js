@@ -8,6 +8,7 @@ window.SITE_CONFIG = {
   siteUrl: "https://msklabs.org",
   contactEmail: "iletisim@msklabs.org",
   gaMeasurementId: "G-WZES84LTL3",
+  adsenseClientId: "ca-pub-7458139167668436",
   apiUrl: "https://msklabsdesk-backend.msklabs-org.workers.dev/api",
   googleSheetApiUrl: "https://script.google.com/macros/s/AKfycbxoT1OGEkYZ_1MJXv6XErJYjVe26qqtr2rZGIXiDXxbNG9gIzabfhWsPJhjInTlG3_NQw/exec",
   version: "1.0.0",

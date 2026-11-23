@@ -35,7 +35,7 @@ window.MSK_APPS_DATA = {
       { tr: "Diyanet Uyumlu Vakitler", en: "Diyanet Compatible Times", ar: "مواقيت معتمدة" },
       { tr: "İnternetsiz Çalışma Hürriyeti", en: "100% Offline Functionality", ar: "يعمل بدون إنترنت" },
       { tr: "Gelişmiş Kıble Pusulası & Harita", en: "Advanced Qibla Compass & Map", ar: "بوصلة القبلة وخريطة" },
-      { tr: "Reklamsız ve %100 Ücretsiz", en: "Ad-free & Completely Free", ar: "بدون إعلانات ومجاني 100%" }
+      { tr: "Aktif Kullanımda Reklamsız & Ücretsiz", en: "Ad-Free in Active Use & Free", ar: "مجاني وبدون إعلانات أثناء الاستخدام" }
     ],
     feature_cards: [
       { id: "card_1", icon: "🕋", title_tr: "Namaz Vakitleri & Canlı Sayaç / Widgetler", title_en: "Prayer Times & Live Countdown / Widgets", title_ar: "أوقات الصلاة والعداد التنازلي / أدوات الواجهة", description_tr: "İmsak, Güneş, Öğle, İkindi, Akşam ve Yatsı vakitleri, canlı geri sayım sayacı, farklı boyutlarda widget seçenekleri ve Diyanet İşleri Başkanlığı uyumlu vakit hesaplama desteği.", description_en: "Track Imsak, Sunrise, Dhuhr, Asr, Maghrib, and Isha prayer times with live countdown timer, multiple size widget options, and Diyanet-compatible calculations.", description_ar: "متابعة أوقات الإمساك، الشروق، الظهر، العصر، المغرب، والعشاء مع عداد تنازلي مباشر، أدوات واجهة (Widget) بأحجام متعددة، وحسابات متوافقة مع رئاسة الشؤون الدينية." },
