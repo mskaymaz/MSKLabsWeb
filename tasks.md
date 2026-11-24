@@ -6,6 +6,10 @@
 
 ## WEB-DIST-001 — Uygulama İndirme Altyapısının R2/CDN ve Merkezi Katalog Sistemine Taşınması [ ]
 - **Amaç:** Web sitesindeki yavaş doğrudan GitHub `raw/` ve `releases/download/` linklerini kaldırıp, tüm indirmeleri merkezi `app_catalog.json` ve `msklabsdesk-backend` (`/dl/...` → R2 `302 Redirect` / Eski Sürüm Worker Cache Proxy) altyapısına bağlamak.
+- **Sebep:** `24.11.2026` ölçümünde GitHub CDN hızı `~196 KB/s` seviyesinde kalmakta; ayrıca `apps/*.html` ve `download.html` içine gömülü sabit GitHub linkleri sürüm yönetimini ve D1 indirme sayımını engellemektedir.
+- **Tasarlanan Değişiklik:** Web vitrinindeki `"GitHub (APK)"` kartı **"Doğrudan İndir (Hızlı CDN)"** olur; tüm indirme butonları `MSKLabsApps/app_catalog.json` (`update_manifest.json` ile uyumlu) üzerinden `msklabsdesk-backend.msklabs-org.workers.dev/dl/<app-slug>/<version>` adresine yönlendirilir.
+- **Beklenen Sonuç:** Ziyaretçiler aktif sürümleri Cloudflare R2 hızıyla, eski sürümleri Worker Cache Proxy hızıyla indirir; her indirme `MSKLabsDesk` D1 paneline anlık işlenir ve yeni sürümlerde HTML dosyalarına dokunulmaz.
+- **Geçiş Sırası Önkoşulu (`IST-016` Bölüm 6.D):** Bu görev yalnızca **R2 yüklemesi → `MSKLabsDesk` (`DIST-CDN-001`) → `MSKLabsApps` (`app_catalog.json`)** adımları canlıda doğrulandıktan sonra uygulanır (aksi halde canlı sitede 404 oluşur).
 - **Referans Kararlar:**
   - `D:\Code\istisare\istisareler\016-melez-hizli-dagitim-r2-ve-worker-cache-mimarisi.md` (`IST-016`)
   - `D:\Code\istisare\istisareler\013-ekosistem-telemetri-cihaz-kimligi-ve-istatistik-mimarisi.md` (`IST-013`)
@@ -29,3 +33,4 @@
   - [ ] 3.2: İndirme butonuna tıklandığında hem hızın R2/CDN üzerinden aktığının hem de `MSKLabsDesk` D1 `download_stats` sayacının tetiklendiğinin doğrulanması.
 - [ ] **Task 4 — Çoklu Dil (`TR / EN / AR` + RTL) ve Yerel Tarayıcı Doğrulaması:**
   - [ ] 4.1: `app.html`, `download.html` ve `apps/*.html` sayfalarının yerel önizlemede 3 dilde hatasız açılıp indirme linklerinin doğru çözüldüğünün doğrulanması.
+  - [ ] 4.2: **Google Play / App Store & Sessiz Telemetri Hatırlatması (`IST-013`):** `privacy.html` (TR/EN/AR) içine *"Uygulama kalitesi ve sürüm takibi için kişisel bilgi içermeyen anonim teknik/sürüm verileri işlenir"* cümlesinin eklendiğinin doğrulanması (uygulama içlerinde opt-out/pop-up konulmadığı için mağaza Data Safety uyumu sağlar).

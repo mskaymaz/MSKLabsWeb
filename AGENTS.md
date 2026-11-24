@@ -30,3 +30,7 @@
 ## 6. Nesnel Mühendislik ve Dürüst İstişare İlkesi (Övgü ve Pohpohlama Yasağı)
 * Kullanıcıya yönelik yapay övgüler, pohpohlama veya abartılı ifadeler ("harika, süper, mühendislik harikası" vb.) kesinlikle kullanılmaz.
 * İstişarelerde asistanın yegane görevi; nesnel, tarafsız ve soğukkanlı bir mühendis gibi davranmak, fikirdeki açıkları, riskleri ve tutarsızlıkları sansürsüzce ortaya koymak, doğru ve en verimli teknik yolu savunmaktır.
+
+## Ekosistem Telemetri & Dağıtım Kuralı (IST-013 / IST-016 / IST-017)
+- Uygulama güncelleme veya yeni sürüm yayınlama işlerinde kök dizindeki `ECO_TELEMETRY_GUIDE.md` (ve merkezi `D:\Code\istisare\istisareler\017-eco-sdk-istemci-entegrasyon-rehberi.md`) kuralları **zorunlu** olarak uygulanır.
+- Kapanışta telemetri atılmaz; açılışta `launch_count` biriktirilip ilk/yeniden kurulumda, sürüm değişiminde ve 7 günde 1 gönderilir. Ayarlara opt-out anahtarı/pop-up konulmaz (mağaza uygulamalarında `privacy.html` & Data Safety beyanı korunur).
