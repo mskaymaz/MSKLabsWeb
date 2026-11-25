@@ -75,7 +75,7 @@ function copyStaticAssetsPlugin(): Plugin {
       }
 
       // 4. Root static metadata files
-      const rootFiles = ['announcements.json', 'CNAME', 'robots.txt', 'sitemap.xml', 'manifest.json'];
+      const rootFiles = ['announcements.json', 'CNAME', 'robots.txt', 'sitemap.xml', 'manifest.json', 'favicon.ico'];
       for (const f of rootFiles) {
         copyFile(path.resolve(__dirname, f), path.resolve(outDir, f));
       }
