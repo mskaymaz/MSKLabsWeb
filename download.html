@@ -106,8 +106,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- MSK Labs Favicon -->
-  <link rel="icon" type="image/png" href="img/MSKLabs_favicon.png">
-  <link rel="shortcut icon" href="img/MSKLabs_favicon.png" type="image/x-icon">
+  <link rel="icon" type="image/svg+xml" href="img/MSKLabsFavicon.svg">
+  <link rel="shortcut icon" href="img/MSKLabsFavicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
   <script src="assets/js/config.js"></script>
   <script src="assets/js/analytics.js"></script>
@@ -154,11 +154,14 @@
 
       <!-- Action Buttons -->
       <div class="dl-btn-group">
-        <a href="#" id="playStoreBtn" class="dl-store-btn dl-playstore">
-          🤖 <span>Google Play Store'dan İndir</span>
+        <a href="#" id="playStoreBtn" class="dl-store-btn dl-playstore" style="opacity: 0.55; pointer-events: none; cursor: not-allowed;">
+          🤖 <span>Google Play (Henüz Aktif Değil)</span>
         </a>
-        <a href="#" id="appStoreBtn" class="dl-store-btn dl-appstore">
-          🍏 <span>App Store'dan İndir</span>
+        <a href="#" id="appStoreBtn" class="dl-store-btn dl-appstore" style="opacity: 0.55; pointer-events: none; cursor: not-allowed;">
+          🍏 <span>App Store (Henüz Aktif Değil)</span>
+        </a>
+        <a href="#" id="directCdnBtn" class="dl-store-btn dl-direct" style="display: none; background: #0f766e;">
+          ⚡ <span>Doğrudan İndir (Hızlı CDN)</span>
         </a>
         <a href="#" id="directUrlBtn" class="dl-store-btn dl-direct">
           🌐 <span>Uygulama Tanıtım Sayfası</span>
@@ -179,43 +182,65 @@
     'haydinamaza': {
       name: 'HaydiNamaza',
       icon: '<img src="media/haydinamaza/icon.png" alt="HaydiNamaza">',
-      play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.haydinamaza',
-      app_store: 'https://apps.apple.com/app/haydinamaza',
-      page_url: 'apps/haydinamaza.html'
+      direct_cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/haydi_namaza/v1.0.5',
+      play_store: '',
+      app_store: '',
+      page_url: 'app.html?id=haydinamaza'
+    },
+    'haydi_namaza': {
+      name: 'HaydiNamaza',
+      icon: '<img src="media/haydinamaza/icon.png" alt="HaydiNamaza">',
+      direct_cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/haydi_namaza/v1.0.5',
+      play_store: '',
+      app_store: '',
+      page_url: 'app.html?id=haydinamaza'
     },
     'rekatsay': {
       name: 'RekatSay',
       icon: '<img src="media/rekatsay/icon.png" alt="RekatSay">',
-      play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.rekatsay',
-      app_store: 'https://apps.apple.com/app/rekatsay',
-      page_url: 'apps/rekatsay.html'
+      direct_cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/rekatsay/v1.3.1',
+      play_store: '',
+      app_store: '',
+      page_url: 'app.html?id=rekatsay'
     },
     'date-counter': {
       name: 'Date Counter (Tarih & Hedef Sayacı)',
       icon: '<img src="media/date-counter/icon.png" alt="Date Counter">',
-      play_store: 'https://github.com/mskaymaz/D_DateCounter/releases/download/v1.1.0/DateCounter.exe',
-      app_store: 'https://github.com/mskaymaz/D_DateCounter/releases/download/v1.1.0/DateCounter.exe',
-      page_url: 'apps/date_counter.html'
+      direct_cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+      play_store: '',
+      app_store: '',
+      page_url: 'app.html?id=date_counter'
+    },
+    'date_counter': {
+      name: 'Date Counter (Tarih & Hedef Sayacı)',
+      icon: '<img src="media/date-counter/icon.png" alt="Date Counter">',
+      direct_cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+      play_store: '',
+      app_store: '',
+      page_url: 'app.html?id=date_counter'
     },
     'enyakin': {
       name: 'En Yakın',
       icon: '<img src="img/EnYakinLogo.svg" alt="En Yakın">',
-      play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.enyakin',
-      app_store: 'https://apps.apple.com/app/enyakin',
+      direct_cdn: '',
+      play_store: '',
+      app_store: '',
       page_url: 'apps/enyakin.html'
     },
     'deskpilot': {
       name: 'DeskPilot Masaüstü',
       icon: '<img src="media/deskpilot/icon.png" alt="DeskPilot">',
-      play_store: 'https://msklabs.org/apps/deskpilot.html',
-      app_store: 'https://msklabs.org/apps/deskpilot.html',
+      direct_cdn: '',
+      play_store: '',
+      app_store: '',
       page_url: 'apps/deskpilot.html'
     },
     'gcpiluyari': {
       name: 'GC Pil Uyarı',
       icon: '<span style="font-size: 40px; display: flex; align-items: center; justify-content: center;">🔋</span>',
-      play_store: 'https://play.google.com/store/apps/details?id=org.msklabs.gcpiluyari',
-      app_store: 'https://apps.apple.com/app/gcpiluyari',
+      direct_cdn: '',
+      play_store: '',
+      app_store: '',
       page_url: 'apps/gcpiluyari.html'
     }
   };
@@ -270,9 +295,14 @@
     document.getElementById('appNameText').innerText = appData.name;
     document.getElementById('appIconBox').innerHTML = appData.icon;
 
-    document.getElementById('playStoreBtn').href = appData.play_store;
-    document.getElementById('appStoreBtn').href = appData.app_store;
+    document.getElementById('playStoreBtn').href = appData.play_store || '#';
+    document.getElementById('appStoreBtn').href = appData.app_store || '#';
     document.getElementById('directUrlBtn').href = appData.page_url;
+    const directCdnBtn = document.getElementById('directCdnBtn');
+    if (directCdnBtn && appData.direct_cdn) {
+      directCdnBtn.href = appData.direct_cdn;
+      directCdnBtn.style.display = '';
+    }
 
     // Generate Dynamic QR Code
     const currentFullUrl = window.location.href;
@@ -286,17 +316,23 @@
     const deviceText = document.getElementById('deviceDetectText');
 
     if (isAndroid) {
-      deviceText.innerText = '📱 Android Cihaz Algılandı — Google Play Store\'a Yönlendiriliyorsunuz...';
-      if (autoRedirect && appData.play_store) {
-        setTimeout(() => { window.location.href = appData.play_store; }, 1200);
+      if (appData.play_store) {
+        deviceText.innerText = '📱 Android Cihaz Algılandı — Google Play Store\'a Yönlendiriliyorsunuz...';
+        if (autoRedirect) setTimeout(() => { window.location.href = appData.play_store; }, 1200);
+      } else {
+        deviceText.innerText = '📱 Android Cihaz — Google Play henüz aktif değil; doğrudan APK indirme veya tanıtım sayfasını kullanabilirsiniz.';
+        if (autoRedirect && appData.page_url) setTimeout(() => { window.location.href = appData.page_url; }, 1500);
       }
     } else if (isIOS) {
-      deviceText.innerText = '🍏 iOS Cihaz Algılandı — App Store\'a Yönlendiriliyorsunuz...';
-      if (autoRedirect && appData.app_store) {
-        setTimeout(() => { window.location.href = appData.app_store; }, 1200);
+      if (appData.app_store) {
+        deviceText.innerText = '🍏 iOS Cihaz Algılandı — App Store\'a Yönlendiriliyorsunuz...';
+        if (autoRedirect) setTimeout(() => { window.location.href = appData.app_store; }, 1200);
+      } else {
+        deviceText.innerText = '🍏 iOS Cihaz — App Store henüz aktif değil; tanıtım sayfasına yönlendiriliyorsunuz...';
+        if (autoRedirect && appData.page_url) setTimeout(() => { window.location.href = appData.page_url; }, 1500);
       }
     } else {
-      deviceText.innerText = '🖥️ Masaüstü Cihaz — Telefondan yüklemek için QR Kodu okutabilirsiniz.';
+      deviceText.innerText = '🖥️ Masaüstü Cihaz — Doğrudan indirebilir veya telefondan açmak için QR Kodu okutabilirsiniz.';
     }
   })();
 </script>

@@ -48,7 +48,7 @@ window.MSK_APPS_DATA = {
       { id: "card_8", icon: "📍", title_tr: "Konum Yönetimi & Favori Şehirler", title_en: "Location Management & Favorites", title_ar: "إدارة المواقع والمدن المفضلة", description_tr: "Türkiye ve dünya üzerindeki şehir ve ilçeler arasından arama yapma, konum seçimi ve sık ziyaret edilen yerleri favorilere ekleyerek hızlı erişim.", description_en: "Search and select cities/districts across Turkey and worldwide, save favorite locations, and switch quickly between your saved places.", description_ar: "البحث واختيار المدن والأقضية في تركيا وحول العالم، إضافة المواقع المفضلة، والتنقل السريع بين الأماكن المحفوظة." },
       { id: "card_9", icon: "⚡", title_tr: "%100 Çevrimdışı Kullanım (7 Günlük Önbellek) & Gizlilik", title_en: "100% Offline (7-Day Cache) & Privacy", title_ar: "100% عمل بدون إنترنت (تخزين 7 أيام) والخصوصية", description_tr: "İnternet sağlandığında 7 günlük vakit verilerini otomatik çevrimdışına alır; hesap gerektirmez, kişisel verileri cihazda saklar ve pil dostudur.", description_en: "Automatically caches 7-day prayer data for offline use when connected; no account required, stores settings on-device, and uses minimal battery.", description_ar: "التخزين التلقائي لأوقات الصلاة لمدة 7 أيام عند الاتصال بالإنترنت للاستخدام بدون إنترنت؛ لا يتطلب حساباً، يحفظ البيانات محلياً، وموفر للبطارية." }
     ],
-    storeUrl: "https://play.google.com/store/apps/details?id=org.msklabs.haydinamaza",
+    storeUrl: "app.html?id=haydinamaza",
     downloadPage: "dl.html?app=haydinamaza",
     supportPage: "destek.html?app=haydinamaza"
   },
@@ -163,7 +163,7 @@ window.MSK_APPS_DATA = {
       { tr: "Görev Çubuğu Entegrasyonu (Taskbar Docking)", en: "Taskbar Docking & Widget", ar: "تكامل شريط المهام ودجت" },
       { tr: "3 Farklı Hesaplama Modu & 3 Dil", en: "3 Target Modes & 3 Languages", ar: "3 أنماط أهداف و 3 لغات" }
     ],
-    guide_url: "https://github.com/mskaymaz/D_DateCounter/blob/tia/KULLANIM_KILAVUZU.pdf",
+    guide_url: "",
     storeUrl: "apps/date_counter.html",
     downloadPage: "apps/date_counter.html",
     supportPage: "destek.html?app=date-counter"

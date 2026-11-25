@@ -644,6 +644,10 @@
       gtag('js', new Date());
       gtag('config', 'G-WZES84LTL3');
     </script>
+  <!-- MSK Labs Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/MSKLabsFavicon.svg">
+  <link rel="shortcut icon" href="img/MSKLabsFavicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/MSKLabs_favicon.png">
 </head>
 <body>
 
@@ -1001,43 +1005,88 @@
         var sl = currentApp.store_links || {};
         var downloadCards = [];
 
-        // Google Play
-        var gpUrl = sl.google_play || (currentApp.id === 'haydinamaza' || currentApp.id === 'haydi_namaza' ? 'https://play.google.com/store/apps/details?id=com.msklabs.haydinamaza' : '');
-        if (gpUrl) {
-          downloadCards.push(`
-            <a href="${gpUrl}" target="_blank" rel="noopener noreferrer" class="download-card">
-              <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/google-play.png" alt="Google Play" class="store-brand-icon"></div>
-                <div class="download-card-title">Google Play</div>
+        // Doğrulanmış çalışan CDN ve Google Drive indirme kaynakları
+        var VERIFIED_RELEASES = {
+          'haydinamaza': {
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/haydi_namaza/v1.0.5',
+            drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1nMtU6tlxZw2U7x1OM_R49_HtViIGpCGe',
+            filename: 'HaydiNamaza.apk',
+            type: 'android'
+          },
+          'haydi_namaza': {
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/haydi_namaza/v1.0.5',
+            drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1nMtU6tlxZw2U7x1OM_R49_HtViIGpCGe',
+            filename: 'HaydiNamaza.apk',
+            type: 'android'
+          },
+          'rekatsay': {
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/rekatsay/v1.3.1',
+            drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=15tBdMCBX93fGRqhVFmXyeVtccxWFABnQ',
+            filename: 'RekatSay.apk',
+            type: 'android'
+          },
+          'date_counter': {
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+            drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cgJpGF6I1u2IuNlMWYaAMH66JO-18EDy',
+            drivePass: '571',
+            filename: 'DateCounter_v1.1.0.rar',
+            type: 'windows'
+          },
+          'date-counter': {
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+            drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cgJpGF6I1u2IuNlMWYaAMH66JO-18EDy',
+            drivePass: '571',
+            filename: 'DateCounter_v1.1.0.rar',
+            type: 'windows'
+          }
+        };
+        var relInfo = VERIFIED_RELEASES[currentApp.id] || {};
+        var isDesktopApp = relInfo.type === 'windows' || (currentApp.platform || '').toLowerCase().includes('windows') || (currentApp.platform || '').toLowerCase().includes('desktop');
+
+        // Google Play (Henüz mağaza hesabı aktif değil — tüm uygulamalarda pasif gösterilir)
+        var isGooglePlayPublished = false;
+        var gpUrl = isGooglePlayPublished ? (sl.google_play || '') : '';
+        if (!isDesktopApp) {
+          if (gpUrl) {
+            downloadCards.push(`
+              <a href="${gpUrl}" target="_blank" rel="noopener noreferrer" class="download-card">
+                <div class="download-card-header">
+                  <div class="download-card-icon"><img src="assets/img/store/google-play.png" alt="Google Play" class="store-brand-icon"></div>
+                  <div class="download-card-title">Google Play</div>
+                </div>
+                <div class="download-card-status">${activeLang === 'ar' ? 'تنزيل من متجر Google Play' : (activeLang === 'en' ? 'Get it on Google Play' : 'Play Store üzerinden edin')}</div>
+                <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'انتقل إلى المتجر' : (activeLang === 'en' ? 'Visit Store' : 'Mağazaya Git')}</span>
+              </a>
+            `);
+          } else {
+            downloadCards.push(`
+              <div class="download-card disabled">
+                <div class="download-card-header">
+                  <div class="download-card-icon"><img src="assets/img/store/google-play.png" alt="Google Play" class="store-brand-icon"></div>
+                  <div class="download-card-title">Google Play</div>
+                </div>
+                <div class="download-card-status">${activeLang === 'ar' ? 'غير متاح حالياً (قريباً)' : (activeLang === 'en' ? 'Not active yet — Coming soon' : 'Henüz aktif değil — Çok yakında')}</div>
+                <span class="download-tag tag-soon">🛠️ ${activeLang === 'ar' ? 'قيد التحضير' : (activeLang === 'en' ? 'In Progress' : 'Hazırlanıyor')}</span>
               </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'تنزيل من متجر Google Play' : (activeLang === 'en' ? 'Get it on Google Play' : 'Play Store üzerinden edin')}</div>
-              <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'انتقل إلى المتجر' : (activeLang === 'en' ? 'Visit Store' : 'Mağazaya Git')}</span>
-            </a>
-          `);
-        } else {
-          downloadCards.push(`
-            <div class="download-card disabled">
-              <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/google-play.png" alt="Google Play" class="store-brand-icon"></div>
-                <div class="download-card-title">Google Play</div>
-              </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'ستكون متاحة قريباً' : (activeLang === 'en' ? 'Will be available soon' : 'Çok yakında burada')}</div>
-              <span class="download-tag tag-soon">🛠️ ${activeLang === 'ar' ? 'قيد التحضير' : (activeLang === 'en' ? 'In Progress' : 'Hazırlanıyor')}</span>
-            </div>
-          `);
+            `);
+          }
         }
 
-        // GitHub Direct APK
-        var ghUrl = sl.github || (currentApp.id === 'haydinamaza' || currentApp.id === 'haydi_namaza' ? 'https://github.com/mskaymaz/MSKLabsApps/raw/main/releases/HaydiNamaza.apk' : '');
-        if (ghUrl) {
-          var isDirectApk = ghUrl.endsWith('.apk') || ghUrl.includes('/releases/');
+        // Doğrudan İndirme (Hızlı CDN)
+        var apiGh = sl.github || '';
+        var isDirectBinary = apiGh.endsWith('.apk') || apiGh.endsWith('.exe') || apiGh.endsWith('.rar') || apiGh.includes('/dl/') || apiGh.includes('/releases/download/');
+        var cdnUrl = relInfo.cdn || (isDirectBinary ? apiGh : '');
+        if (cdnUrl) {
+          var statusDesc = isDesktopApp
+            ? (activeLang === 'ar' ? 'تنزيل إصدار Windows (v' + currentApp.version + ')' : (activeLang === 'en' ? 'Download Windows Version (v' + currentApp.version + ')' : 'Windows Sürümünü İndir'))
+            : (activeLang === 'ar' ? 'تنزيل إصدار أندرويد (APK)' : (activeLang === 'en' ? 'Download Android Version (APK)' : 'Android Sürümünü İndir (APK)'));
           downloadCards.push(`
-            <a href="${ghUrl}" ${isDirectApk ? 'download' : ''} target="_blank" rel="noopener noreferrer" class="download-card">
+            <a href="${cdnUrl}" ${relInfo.filename ? 'download="' + relInfo.filename + '"' : 'download'} target="_blank" rel="noopener noreferrer" class="download-card">
               <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="GitHub" class="store-brand-icon"></div>
-                <div class="download-card-title">GitHub (APK)</div>
+                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="CDN" class="store-brand-icon"></div>
+                <div class="download-card-title">${activeLang === 'ar' ? 'تنزيل مباشر (CDN سريع)' : (activeLang === 'en' ? 'Direct Download (Fast CDN)' : 'Doğrudan İndir (Hızlı CDN)')}</div>
               </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'تنزيل إصدار أندرويد (APK)' : (activeLang === 'en' ? 'Download Android Version (APK)' : 'Android Sürümünü İndir (APK)')}</div>
+              <div class="download-card-status">${statusDesc}</div>
               <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'تنزيل مباشر' : (activeLang === 'en' ? 'Direct Download' : 'Doğrudan İndir')}</span>
             </a>
           `);
@@ -1045,63 +1094,71 @@
           downloadCards.push(`
             <div class="download-card disabled">
               <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="GitHub" class="store-brand-icon"></div>
-                <div class="download-card-title">GitHub (APK)</div>
+                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="CDN" class="store-brand-icon"></div>
+                <div class="download-card-title">${activeLang === 'ar' ? 'تنزيل مباشر (CDN سريع)' : (activeLang === 'en' ? 'Direct Download (Fast CDN)' : 'Doğrudan İndir (Hızlı CDN)')}</div>
               </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'حزمة APK قيد التجهيز' : (activeLang === 'en' ? 'APK build in progress' : 'APK paketi hazırlanıyor')}</div>
+              <div class="download-card-status">${activeLang === 'ar' ? 'حزمة التثبيت قيد التجهيز' : (activeLang === 'en' ? 'Installer package in progress' : 'Kurulum paketi hazırlanıyor')}</div>
               <span class="download-tag tag-soon">🛠️ ${activeLang === 'ar' ? 'قيد التحضير' : (activeLang === 'en' ? 'In Progress' : 'Hazırlanıyor')}</span>
             </div>
           `);
         }
 
-        // Google Drive Direct APK
-        var gdUrl = sl.google_drive || (currentApp.id === 'haydinamaza' || currentApp.id === 'haydi_namaza' ? 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1nMtU6tlxZw2U7x1OM_R49_HtViIGpCGe' : '');
+        // Google Drive Direct Download
+        var gdUrl = sl.google_drive || relInfo.drive || '';
         if (gdUrl) {
+          var drivePassHtml = relInfo.drivePass
+            ? `<div class="rar-pass-badge">${activeLang === 'ar' ? '🔑 كلمة مرور الملف: <strong>' + relInfo.drivePass + '</strong>' : (activeLang === 'en' ? '🔑 Archive Password: <strong>' + relInfo.drivePass + '</strong>' : '🔑 RAR Arşiv Şifresi: <strong>' + relInfo.drivePass + '</strong>')}</div>`
+            : '';
           downloadCards.push(`
             <a href="${gdUrl}" target="_blank" rel="noopener noreferrer" class="download-card">
               <div class="download-card-header">
                 <div class="download-card-icon"><img src="assets/img/store/google-drive.png" alt="Google Drive" class="store-brand-icon"></div>
-                <div class="download-card-title">Google Drive (APK)</div>
+                <div class="download-card-title">Google Drive${isDesktopApp ? '' : ' (APK)'}</div>
               </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'تنزيل بديل عبر Google Drive' : (activeLang === 'en' ? 'Alternative Google Drive Download' : 'Alternatif Google Drive İndirme')}</div>
+              <div class="download-card-status">
+                ${activeLang === 'ar' ? 'تنزيل بديل عبر Google Drive' : (activeLang === 'en' ? 'Alternative Google Drive Download' : 'Alternatif Google Drive İndirme')}
+                ${drivePassHtml}
+              </div>
               <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'تنزيل مباشر' : (activeLang === 'en' ? 'Direct Download' : 'Doğrudan İndir')}</span>
             </a>
           `);
         }
 
-        // App Store (iOS)
-        var appleNoteText = activeLang === 'ar' 
-          ? 'غير متوفر حالياً بسبب الإجراءات المعقدة والصارمة لشركة Apple.' 
-          : (activeLang === 'en' 
-            ? 'Not available yet due to Apple\'s strict and irrational store policies.' 
-            : 'Apple\'a ait katı ve anlamsız prosedürler gereği henüz hazırlanamıyor.');
+        // App Store (iOS) - Sadece mobil uygulamalarda gösterilir
+        if (!isDesktopApp) {
+          var appleNoteText = activeLang === 'ar' 
+            ? 'غير متوفر حالياً بسبب الإجراءات المعقدة والصارمة لشركة Apple.' 
+            : (activeLang === 'en' 
+              ? 'Not available yet due to Apple\'s strict and irrational store policies.' 
+              : 'Apple\'a ait katı ve anlamsız prosedürler gereği henüz hazırlanamıyor.');
 
-        if (sl.app_store) {
-          downloadCards.push(`
-            <a href="${sl.app_store}" target="_blank" rel="noopener noreferrer" class="download-card">
-              <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/apple.svg" alt="App Store" class="store-brand-icon" style="width: 22px; height: 22px;"></div>
-                <div class="download-card-title">App Store</div>
+          if (sl.app_store) {
+            downloadCards.push(`
+              <a href="${sl.app_store}" target="_blank" rel="noopener noreferrer" class="download-card">
+                <div class="download-card-header">
+                  <div class="download-card-icon"><img src="assets/img/store/apple.svg" alt="App Store" class="store-brand-icon" style="width: 22px; height: 22px;"></div>
+                  <div class="download-card-title">App Store</div>
+                </div>
+                <div class="download-card-status">${activeLang === 'ar' ? 'متوفر على App Store' : (activeLang === 'en' ? 'Available on App Store' : 'App Store üzerinden edin')}</div>
+                <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'انتقل إلى المتجر' : (activeLang === 'en' ? 'Visit Store' : 'Mağazaya Git')}</span>
+              </a>
+            `);
+          } else {
+            downloadCards.push(`
+              <div class="download-card disabled">
+                <div class="download-card-header">
+                  <div class="download-card-icon"><img src="assets/img/store/apple.svg" alt="App Store" class="store-brand-icon" style="width: 22px; height: 22px;"></div>
+                  <div class="download-card-title">App Store</div>
+                </div>
+                <div class="download-card-status" style="color: var(--text-muted); font-size: 0.82rem; line-height: 1.45; margin-top: 4px;">
+                  ${appleNoteText}
+                </div>
               </div>
-              <div class="download-card-status">${activeLang === 'ar' ? 'متوفر على App Store' : (activeLang === 'en' ? 'Available on App Store' : 'App Store üzerinden edin')}</div>
-              <span class="download-tag tag-active">⚡ ${activeLang === 'ar' ? 'انتقل إلى المتجر' : (activeLang === 'en' ? 'Visit Store' : 'Mağazaya Git')}</span>
-            </a>
-          `);
-        } else {
-          downloadCards.push(`
-            <div class="download-card disabled">
-              <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/apple.svg" alt="App Store" class="store-brand-icon" style="width: 22px; height: 22px;"></div>
-                <div class="download-card-title">App Store</div>
-              </div>
-              <div class="download-card-status" style="color: var(--text-muted); font-size: 0.82rem; line-height: 1.45; margin-top: 4px;">
-                ${appleNoteText}
-              </div>
-            </div>
-          `);
+            `);
+          }
         }
 
-        // Web / PWA or Windows Store
+        // Web / PWA or Windows Store (Yalnızca spesifik gerçek ürün URL'si varsa gösterilir)
         if (sl.web_url) {
           downloadCards.push(`
             <a href="${sl.web_url}" target="_blank" rel="noopener noreferrer" class="download-card">
@@ -1114,7 +1171,8 @@
             </a>
           `);
         }
-        if (sl.windows_store) {
+        var hasValidWinStore = sl.windows_store && sl.windows_store.indexOf('apps.microsoft.com/detail/') !== -1;
+        if (hasValidWinStore) {
           downloadCards.push(`
             <a href="${sl.windows_store}" target="_blank" rel="noopener noreferrer" class="download-card">
               <div class="download-card-header">
@@ -1133,6 +1191,7 @@
           var items = currentApp.versions.map(function(ver) {
             var note = ver['changelog_' + activeLang] || ver.changelog_tr || 'İyileştirmeler ve hata düzeltmeleri yapıldı.';
             var dateStr = ver.released_at ? ver.released_at.split(' ')[0] : '';
+            var verDlUrl = relInfo.cdn || (ver.download_url && ver.download_url.startsWith('http') ? ver.download_url : '');
             return `
               <div class="version-item">
                 <div class="version-header">
@@ -1140,7 +1199,7 @@
                   <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500;">${dateStr}</span>
                 </div>
                 <div class="version-notes">${note}</div>
-                ${ver.download_url ? `<div style="margin-top: 6px;"><a href="${ver.download_url}" style="font-size: 0.78rem; color: var(--accent-primary, #2563eb); text-decoration: none; font-weight: 600;">📥 Sürümü Doğrudan İndir (${ver.platform || 'Genel'})</a></div>` : ''}
+                ${verDlUrl ? `<div style="margin-top: 6px;"><a href="${verDlUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.78rem; color: var(--accent-primary, #2563eb); text-decoration: none; font-weight: 600;">📥 Sürümü Doğrudan İndir (${ver.platform || 'Genel'})</a></div>` : ''}
               </div>
             `;
           }).join('');

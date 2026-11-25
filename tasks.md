@@ -4,7 +4,7 @@
 
 ---
 
-## WEB-DIST-001 — Uygulama İndirme Altyapısının R2/CDN ve Merkezi Katalog Sistemine Taşınması [ ]
+## WEB-DIST-001 — Uygulama İndirme Altyapısının R2/CDN ve Merkezi Katalog Sistemine Taşınması [x]
 - **Amaç:** Web sitesindeki yavaş doğrudan GitHub `raw/` ve `releases/download/` linklerini kaldırıp, tüm indirmeleri merkezi `app_catalog.json` ve `msklabsdesk-backend` (`/dl/...` → R2 `302 Redirect` / Eski Sürüm Worker Cache Proxy) altyapısına bağlamak.
 - **Sebep:** `24.11.2026` ölçümünde GitHub CDN hızı `~196 KB/s` seviyesinde kalmakta; ayrıca `apps/*.html` ve `download.html` içine gömülü sabit GitHub linkleri sürüm yönetimini ve D1 indirme sayımını engellemektedir.
 - **Tasarlanan Değişiklik:** Web vitrinindeki `"GitHub (APK)"` kartı **"Doğrudan İndir (Hızlı CDN)"** olur; tüm indirme butonları `MSKLabsApps/app_catalog.json` (`update_manifest.json` ile uyumlu) üzerinden `msklabsdesk-backend.msklabs-org.workers.dev/dl/<app-slug>/<version>` adresine yönlendirilir.
