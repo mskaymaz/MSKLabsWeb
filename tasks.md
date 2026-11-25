@@ -34,3 +34,8 @@
 - [ ] **Task 4 — Çoklu Dil (`TR / EN / AR` + RTL) ve Yerel Tarayıcı Doğrulaması:**
   - [ ] 4.1: `app.html`, `download.html` ve `apps/*.html` sayfalarının yerel önizlemede 3 dilde hatasız açılıp indirme linklerinin doğru çözüldüğünün doğrulanması.
   - [ ] 4.2: **Google Play / App Store & Sessiz Telemetri Hatırlatması (`IST-013`):** `privacy.html` (TR/EN/AR) içine *"Uygulama kalitesi ve sürüm takibi için kişisel bilgi içermeyen anonim teknik/sürüm verileri işlenir"* cümlesinin eklendiğinin doğrulanması (uygulama içlerinde opt-out/pop-up konulmadığı için mağaza Data Safety uyumu sağlar).
+
+---
+### İndirme Bağlantıları & Favicon Güncellemesi (25.11.2026 - 14:55)
+- [x] **İndirme & Mağaza Kanalları:** Google Play ve Microsoft Store pasife alındı; `app.html`, `download.html`, `apps-data.js` ve statik uygulama sayfalarındaki kırık (404) linkler temizlenerek çalışan Hızlı CDN ve Google Drive linklerine bağlandı.
+- [x] **Favicon Standardizasyonu:** Yeni `img/MSKLabsFavicon.png` (ve orijinal `img/MSKLabsBroIco.svg` yedeği) eklenerek 40 kamu HTML sayfasına uygulandı; `app.html` ve alt sayfalardaki eksik ikon sorunu giderildi.
