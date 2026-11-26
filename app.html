@@ -1020,7 +1020,7 @@
             type: 'android'
           },
           'rekatsay': {
-            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/rekatsay/v1.3.1',
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/rekatsay/v1.3.2',
             drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=15tBdMCBX93fGRqhVFmXyeVtccxWFABnQ',
             filename: 'RekatSay.apk',
             type: 'android'
@@ -1083,7 +1083,7 @@
           downloadCards.push(`
             <a href="${cdnUrl}" ${relInfo.filename ? 'download="' + relInfo.filename + '"' : 'download'} target="_blank" rel="noopener noreferrer" class="download-card">
               <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="CDN" class="store-brand-icon"></div>
+                <div class="download-card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="store-brand-icon" aria-label="Hızlı İndirme"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></div>
                 <div class="download-card-title">${activeLang === 'ar' ? 'تنزيل مباشر (CDN سريع)' : (activeLang === 'en' ? 'Direct Download (Fast CDN)' : 'Doğrudan İndir (Hızlı CDN)')}</div>
               </div>
               <div class="download-card-status">${statusDesc}</div>
@@ -1094,7 +1094,7 @@
           downloadCards.push(`
             <div class="download-card disabled">
               <div class="download-card-header">
-                <div class="download-card-icon"><img src="assets/img/store/github.png" alt="CDN" class="store-brand-icon"></div>
+                <div class="download-card-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="store-brand-icon" aria-label="Hızlı İndirme"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></div>
                 <div class="download-card-title">${activeLang === 'ar' ? 'تنزيل مباشر (CDN سريع)' : (activeLang === 'en' ? 'Direct Download (Fast CDN)' : 'Doğrudan İndir (Hızlı CDN)')}</div>
               </div>
               <div class="download-card-status">${activeLang === 'ar' ? 'حزمة التثبيت قيد التجهيز' : (activeLang === 'en' ? 'Installer package in progress' : 'Kurulum paketi hazırlanıyor')}</div>

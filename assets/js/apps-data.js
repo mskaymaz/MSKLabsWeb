@@ -216,7 +216,7 @@ window.MSK_APPS_DATA = {
       en: "Sensor-Based Automatic Rakaat Counter",
       ar: "عداد الركعات التلقائي بالحساسات"
     },
-    version: "1.3.1",
+    version: "1.3.2",
     platform: "Android",
     rating: "4.9 ⭐",
     summary: {
