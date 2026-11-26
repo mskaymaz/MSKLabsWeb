@@ -96,6 +96,21 @@
           <input type="hidden" id="categoryInput" value="hata">
         </div>
 
+        <!-- İlgili Uygulama (İsteğe Bağlı) -->
+        <div class="form-group">
+          <label class="form-label" for="appSelect">
+            <span class="lang-tr">İlgili Uygulama (İsteğe Bağlı)</span>
+            <span class="lang-en">Related App (Optional)</span>
+            <span class="lang-ar">التطبيق المعني (اختياري)</span>
+          </label>
+          <select id="appSelect" class="custom-input" onchange="handleAppSelectChange()">
+            <option value="">MSK Labs Genel / Web</option>
+            <option value="haydi_namaza">Haydi Namaza</option>
+            <option value="rekatsay">RekatSay</option>
+            <option value="date_counter">Date Counter</option>
+          </select>
+        </div>
+
         <!-- Konu Başlığı -->
         <div class="form-group">
           <label class="form-label" for="subjectInput">
@@ -223,13 +238,44 @@
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const rawAppParam = urlParams.get('app'), appName = rawAppParam || 'MSK Labs Genel';
+  const rawAppParam = urlParams.get('app');
+  const detectOs = () => {
+    const ua = navigator.userAgent || '';
+    if (/Android/i.test(ua)) return 'Android';
+    if (/iPhone|iPad|iPod/i.test(ua)) return 'iOS';
+    if (/Win/i.test(navigator.platform || ua)) return 'Windows';
+    if (/Mac/i.test(navigator.platform || ua)) return 'macOS';
+    if (/Linux/i.test(navigator.platform || ua)) return 'Linux';
+    return 'Web';
+  };
+  let appName = rawAppParam || 'MSK Labs Genel';
   const rawVerParam = urlParams.get('ver'), appVer = rawVerParam || 'Web';
-  const rawOsParam = urlParams.get('os'), appOs = rawOsParam || (navigator.platform.includes('Win') ? 'Windows' : 'Mobil');
+  const rawOsParam = urlParams.get('os'), appOs = rawOsParam || detectOs();
 
-  if (rawAppParam) document.getElementById('appBadgeTitle').innerText = appName;
+  const appSelectEl = document.getElementById('appSelect');
+  if (appSelectEl && rawAppParam) {
+    if (![...appSelectEl.options].some(o => o.value === rawAppParam)) {
+      const opt = document.createElement('option');
+      opt.value = rawAppParam;
+      opt.textContent = rawAppParam;
+      appSelectEl.appendChild(opt);
+    }
+    appSelectEl.value = rawAppParam;
+  }
+
+  function handleAppSelectChange() {
+    if (!appSelectEl) return;
+    const val = appSelectEl.value;
+    appName = val || 'MSK Labs Genel';
+    const titleEl = document.getElementById('appBadgeTitle');
+    if (titleEl) {
+      titleEl.innerText = val ? appSelectEl.options[appSelectEl.selectedIndex].text : 'MSK Labs Genel';
+    }
+  }
+
+  if (rawAppParam) handleAppSelectChange();
   if (rawVerParam) document.getElementById('appBadgeVersion').innerText = appVer;
-  if (rawOsParam) document.getElementById('appBadgeOs').innerText = appOs;
+  document.getElementById('appBadgeOs').innerText = appOs;
 
   function setLang(lang, saveToStorage) {
     if (!lang) { try { lang = localStorage.getItem('user_lang'); } catch(e) {} }
@@ -369,6 +415,7 @@
       content: messageVal,
       category: categoryVal,
       app: appName,
+      app_version: appVer,
       ver: appVer,
       os: appOs,
       message: messageVal,
