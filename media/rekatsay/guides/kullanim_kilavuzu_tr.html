@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RekatSay Kullanım Kılavuzu (TR)</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.55;
+      font-size: 10.5pt;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f3a5f;
+      color: #ffffff;
+      padding: 18px 22px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+    header h1 { margin: 0 0 4px 0; font-size: 20pt; }
+    header p { margin: 0; font-size: 9.5pt; opacity: 0.9; }
+    .intro {
+      background: #f6e6d1;
+      border: 1px solid #dcceb8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    section {
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fafafa;
+      page-break-inside: avoid;
+    }
+    h2 {
+      margin: 0 0 8px 0;
+      font-size: 12.5pt;
+      color: #1f3a5f;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin-bottom: 5px; }
+    code {
+      background: #eef2f7;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 9.5pt;
+    }
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 8.5pt;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RekatSay Kullanım Kılavuzu</h1>
+    <p>Sürüm: v1.3.2 &bull; Dil: Türkçe (TR) &bull; MSK Labs</p>
+  </header>
+
+  <div class="intro">
+    RekatSay, namaz sırasında secde ve rekat sayılarını cihazınızın ortam ışığı sensörü aracılığıyla takip etmenize yardımcı olur.
+  </div>
+
+  <section>
+    <h2>1. Hızlı Başlangıç (Ana Oturum)</h2>
+    <ul>
+      <li><strong>Telefon Konumu:</strong> Telefonu seccadenin önüne veya yanına, ekranı yukarı bakacak ve secde sırasında baş/gövde gölgeniz sensörü örtecek şekilde sabitleyin.</li>
+      <li><strong>Başlatma:</strong> Sayımı başlatmak için <strong>Başlat</strong> düğmesine dokunun. Her yaklaşma ve geri açılma döngüsü <code>1 Secde</code> sayılır; her <code>2 Secde</code>, <code>1 Rekat</code> olarak işlenir.</li>
+      <li><strong>Duraklatma ve Sıfırlama:</strong> <strong>Bitir</strong> sayımı duraklatır, <strong>Yeniden Başla</strong> kaldığınız yerden devam ettirir, <strong>Sıfırla</strong> sayaçları sıfırlar.</li>
+      <li><strong>Koyu / Açık Mod:</strong> Sağ üstteki anahtarla geçiş yapabilirsiniz. Koyu moddan çıkmak için anahtara dokunun veya ekrana <strong>çift dokunun</strong>.</li>
+      <li><strong>Bilgi Simgesi (i):</strong> Sağ üstteki <code>(i)</code> simgesi koyu mod kullanımını hatırlatır.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Genel Ekran Ayarları</h2>
+    <ul>
+      <li><strong>Uygulama Dili:</strong> Ayarlar ekranının üstündeki <code>TR / EN / AR</code> çubuğundan dili anında değiştirebilirsiniz.</li>
+      <li><strong>Rekat Gösterim Şekli:</strong> Sayaçta <strong>İçinde Bulunulan Rekat</strong> veya <strong>Tamamlanan Rekat</strong> gösterimini seçebilirsiniz.</li>
+      <li><strong>Yazı Boyutu ve Renkler:</strong> Rekat ve Secde sayaçlarının puntosunu ayarlayabilir; Zemin, Başlıklar, Sayaçlar, Başla ve Sıfırla buton renklerini özelleştirebilirsiniz.</li>
+      <li><strong>Parlaklık Notu:</strong> Uygulama cihazınızın sistem ekran parlaklığını değiştirmez.</li>
+      <li><strong>Varsayılan Ayarlara Dön:</strong> Tüm renk, yazı boyutu ve görünüm tercihlerini başlangıç durumuna döndürür.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Kalibrasyon ve Canlı Sensör Teşhisi</h2>
+    <ul>
+      <li><strong>Canlı Sensör Teşhisi:</strong> <em>Ortam Tabanı (lx)</em>, <em>Canlı Işık (lx)</em>, <em>Anlık Oran (%)</em> ve <em>En Düşük Oran (%)</em> değerlerini canlı izleyin.</li>
+      <li><strong>Canlı Denemeyi Başlat / Durdur:</strong> Deneme secdesi yaparak ışık oranının belirgin şekilde düşüp düşmediğini test edin.</li>
+      <li><strong>Kalibrasyonu Sıfırla:</strong> Ortam ışığı veya telefon konumu değiştiyse yeni taban değeri ölçtürün.</li>
+      <li><strong>Analiz Sonuçları:</strong> Son kayıtların <code>Min lx</code>, <code>Maks lx</code>, <code>%Düşme</code> ve <code>%Toparlanma</code> değerlerini inceleyip panoya kopyalayabilirsiniz. Veriler yalnızca başarılı oturumlarda anonim kaydedilir.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Gelişmiş Ayarlar (Ölçüm Hassasiyeti)</h2>
+    <ul>
+      <li>Teknik ayarları anlamakta zorlanıyorsanız varsayılan değerlerle kullanmanız önerilir.</li>
+      <li><strong>Secde Sınırı (Varsayılan %11.0):</strong> Secdeye benzemeyen küçük hareketler sayılıyorsa değeri düşürün; gerçek secdeler eksik kalıyorsa yükseltin.</li>
+      <li><strong>Hatalı Hareket Sınırı (Varsayılan %19.0):</strong> Bu sınırın üstünde kalan hareketler sarkma veya destek hareketi gibi geçersiz sayılır.</li>
+      <li>Her iki eşik <code>&plusmn;0.5</code> adımlarla ayarlanabilir veya <strong>Varsayılan</strong> düğmesiyle sıfırlanabilir.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Sıkça Sorulan Sorular ve İpuçları</h2>
+    <ul>
+      <li><strong>"Uygun sensör verisi bulunamadı" uyarısı:</strong> Cihazınızda ortam ışığı sensörü sınırlı olabilir veya kılıf/ekran koruyucu sensörü kapatıyor olabilir. Farklı bir açı deneyin.</li>
+      <li><strong>Işık kaynağı konumu:</strong> Telefonu doğrudan lambanın gölge düşmeyen açısına koymak yerine, secde sırasında gölgenizin sensörü örteceği konuma yerleştirin.</li>
+      <li><strong>Koyu Mod:</strong> Gece veya loş ortamlarda ekran ışığının dikkat dağıtmaması için arayüzü karartır.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Destek ve Bilgi Kartları</h2>
+    <ul>
+      <li><strong>Destek Olabilirsiniz:</strong> Manevi dua hatırlatma alanıdır.</li>
+      <li><strong>Bize Ulaşın:</strong> İstek, öneri ve geri bildirimlerinizi web formu üzerinden iletebilirsiniz.</li>
+      <li><strong>Güncelleme ve Uygulama Bilgileri:</strong> Kurulu sürümü görüntüler; yeni sürüm varsa doğrudan indirme bağlantısı sunar.</li>
+      <li><strong>Diğer Uygulamalarımız ve Biz Kimiz:</strong> MSK Labs uygulamaları ve proje hakkında detaylı bilgi sayfalarına yönlendirir.</li>
+    </ul>
+  </section>
+
+  <footer>
+    MSK Labs &bull; RekatSay Kullanım Kılavuzu (TR)
+  </footer>
+</body>
+</html>

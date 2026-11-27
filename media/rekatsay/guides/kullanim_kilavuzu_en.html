@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RekatSay User Guide (EN)</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.55;
+      font-size: 10.5pt;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f3a5f;
+      color: #ffffff;
+      padding: 18px 22px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+    header h1 { margin: 0 0 4px 0; font-size: 20pt; }
+    header p { margin: 0; font-size: 9.5pt; opacity: 0.9; }
+    .intro {
+      background: #f6e6d1;
+      border: 1px solid #dcceb8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    section {
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fafafa;
+      page-break-inside: avoid;
+    }
+    h2 {
+      margin: 0 0 8px 0;
+      font-size: 12.5pt;
+      color: #1f3a5f;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin-bottom: 5px; }
+    code {
+      background: #eef2f7;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 9.5pt;
+    }
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 8.5pt;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RekatSay User Guide</h1>
+    <p>Version: v1.3.2 &bull; Language: English (EN) &bull; MSK Labs</p>
+  </header>
+
+  <div class="intro">
+    RekatSay helps you track sajdah and rakah counts during prayer using your device's ambient light sensor.
+  </div>
+
+  <section>
+    <h2>1. Quick Start (Main Session)</h2>
+    <ul>
+      <li><strong>Phone Placement:</strong> Place your phone flat in front of or beside your prayer mat with the screen facing up so your head/body casts a shadow over the sensor during sajdah.</li>
+      <li><strong>Starting:</strong> Tap <strong>Start</strong> to begin counting. Each approach and return cycle counts as <code>1 Sajdah</code>; every <code>2 Sajdahs</code> count as <code>1 Rakah</code>.</li>
+      <li><strong>Pausing &amp; Resetting:</strong> <strong>Finish</strong> pauses the session, <strong>Restart</strong> resumes from where you left off, and <strong>Reset</strong> clears the counters.</li>
+      <li><strong>Dark / Light Mode:</strong> Toggle using the top-right switch. To exit Dark mode, tap the switch or <strong>double-tap</strong> the screen.</li>
+      <li><strong>Info Icon (i):</strong> Shows a quick reminder about Dark mode usage.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. General Display Settings</h2>
+    <ul>
+      <li><strong>App Language:</strong> Switch instantly between <code>TR / EN / AR</code> from the top bar in Settings.</li>
+      <li><strong>Rakah Display Mode:</strong> Choose whether the counter displays the <strong>Current Rakah</strong> or <strong>Finished Rakah</strong>.</li>
+      <li><strong>Font Size &amp; Colors:</strong> Adjust Rakah and Sajdah counter sizes and customize Background, Header, Counter, Start, and Reset button colors.</li>
+      <li><strong>Brightness Note:</strong> The app does not change your device's system screen brightness.</li>
+      <li><strong>Reset to Defaults:</strong> Restores all colors, font sizes, and display preferences to their initial state.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Calibration &amp; Live Sensor Diagnostics</h2>
+    <ul>
+      <li><strong>Live Sensor Diagnostics:</strong> Monitor <em>Ambient Baseline (lx)</em>, <em>Live Light (lx)</em>, <em>Live Ratio (%)</em>, and <em>Lowest Ratio (%)</em> in real time.</li>
+      <li><strong>Start / Stop Live Trial:</strong> Perform a test sajdah to verify that the light ratio drops noticeably.</li>
+      <li><strong>Reset Calibration:</strong> Measure a new baseline if room lighting or phone position changes.</li>
+      <li><strong>Analysis Results:</strong> View <code>Min lx</code>, <code>Max lx</code>, <code>%Drop</code>, and <code>%Recovery</code> for recent records and copy them to your clipboard. Data is recorded anonymously only during successful sessions.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Advanced Settings (Measurement Sensitivity)</h2>
+    <ul>
+      <li>Using the default values is recommended if you are unsure about technical settings.</li>
+      <li><strong>Sajdah Threshold (Default 11.0%):</strong> Lower slightly if small unrelated movements are counted; raise slightly if real sajdahs are missed.</li>
+      <li><strong>Invalid Move Threshold (Default 19.0%):</strong> Movements remaining above this threshold are treated as invalid (e.g., leaning or support).</li>
+      <li>Both thresholds can be adjusted in <code>&plusmn;0.5</code> steps or restored with the <strong>Default</strong> button.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. FAQ &amp; Tips</h2>
+    <ul>
+      <li><strong>"Suitable sensor data not found" warning:</strong> Your device's ambient light sensor may be limited or blocked by a case/screen protector. Try a different angle.</li>
+      <li><strong>Light source placement:</strong> Avoid placing the phone directly under a lamp where no shadow falls; position it so your shadow covers the sensor during sajdah.</li>
+      <li><strong>Dark Mode:</strong> Dims the screen in low-light environments so the display does not distract you.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Support &amp; Info Cards</h2>
+    <ul>
+      <li><strong>You Can Support:</strong> A spiritual prayer reminder section.</li>
+      <li><strong>Contact Us:</strong> Send requests, suggestions, and feedback via our web form.</li>
+      <li><strong>Update &amp; App Info:</strong> Displays the installed version and provides a direct download link when a new version is available.</li>
+      <li><strong>Other Apps &amp; About Us:</strong> Opens web pages about MSK Labs applications and project goals.</li>
+    </ul>
+  </section>
+
+  <footer>
+    MSK Labs &bull; RekatSay User Guide (EN)
+  </footer>
+</body>
+</html>

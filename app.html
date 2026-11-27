@@ -959,11 +959,30 @@
         var langActiveText = activeLang === 'ar' ? 'نشط' : (activeLang === 'en' ? 'Active' : 'Aktif');
         var dlBtnText = activeLang === 'ar' ? 'تنزيل التطبيق' : (activeLang === 'en' ? 'Download App' : 'Uygulamayı İndir');
         var guideBtnText = activeLang === 'ar' ? 'دليل الاستخدام (PDF)' : (activeLang === 'en' ? 'User Guide (PDF)' : 'Kullanım Kılavuzu İndir');
+        var guideWebText = activeLang === 'ar' ? 'قراءة عبر الويب' : (activeLang === 'en' ? 'Read Online' : 'Web\'de Oku');
         var guideNotReadyMsg = activeLang === 'ar' ? 'دليل الاستخدام (PDF) قيد التجهيز وسيتم نشره قريباً.' : (activeLang === 'en' ? 'User guide (PDF) is being prepared and will be available soon.' : 'Kullanım kılavuzu (PDF) hazırlanıyor, yakında eklenecektir.');
 
-        var guideUrl = currentApp.guide_url || currentApp.manual_url || '';
+        var VERIFIED_GUIDES = {
+          'rekatsay': {
+            pdf: {
+              tr: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_TR.pdf',
+              en: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_EN.pdf',
+              ar: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_AR.pdf'
+            },
+            html: {
+              tr: 'media/rekatsay/guides/kullanim_kilavuzu_tr.html',
+              en: 'media/rekatsay/guides/kullanim_kilavuzu_en.html',
+              ar: 'media/rekatsay/guides/kullanim_kilavuzu_ar.html'
+            }
+          }
+        };
+        var verifiedGuide = VERIFIED_GUIDES[currentApp.id] || null;
+        var rawGuide = currentApp.guide_url || currentApp.manual_url || '';
+        var guideUrl = (verifiedGuide && verifiedGuide.pdf[activeLang])
+          || (typeof rawGuide === 'object' && rawGuide ? (rawGuide[activeLang] || rawGuide.tr || '') : rawGuide);
+        var guideWebUrl = (verifiedGuide && verifiedGuide.html[activeLang]) || '';
         var guideAttr = guideUrl 
-          ? `href="${guideUrl}" target="_blank" download` 
+          ? `href="${guideUrl}" target="_blank" rel="noopener noreferrer" download` 
           : `href="javascript:void(0)" onclick="alert('${guideNotReadyMsg}')"`;
 
         var langRightPanelHTML = `
@@ -998,6 +1017,7 @@
             <a ${guideAttr} class="hero-guide-btn" title="${guideBtnText}">
               <span>📖 ${guideBtnText}</span>
             </a>
+            ${guideWebUrl ? `<a href="${guideWebUrl}" target="_blank" rel="noopener noreferrer" class="hero-guide-btn" title="${guideWebText}"><span>🌐 ${guideWebText}</span></a>` : ''}
           </div>
         `;
 

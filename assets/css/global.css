@@ -1008,6 +1008,32 @@ body.dark-theme .arabic-btn-icon {
   color: #ffffff !important;
 }
 
+.hero-guide-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--bg-surface, #f8fafc);
+  color: var(--text-main, #334155) !important;
+  border: 1px solid var(--border-color, #cbd5e1);
+  padding: 7px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-top: 4px;
+  width: fit-content;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.hero-guide-btn:hover {
+  background: var(--bg-surface-hover, #f1f5f9);
+  border-color: var(--primary-color, #2563eb);
+  color: var(--primary-color, #2563eb) !important;
+  transform: translateY(-1px);
+}
+
 .download-section {
   margin-top: 35px;
   padding-top: 25px;
