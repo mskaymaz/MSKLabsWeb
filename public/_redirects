@@ -5,6 +5,15 @@
 /aniltilar/ https://msklabs.org/blog/anilts 301
 /aniltilar/* https://msklabs.org/blog/anilts 301
 /aniltilar.html https://msklabs.org/blog/anilts 301
+/anilts https://msklabs.org/blog/anilts 301
+/anilts/ https://msklabs.org/blog/anilts 301
+/guncel https://msklabs.org/blog/guncel 301
+/guncel/ https://msklabs.org/blog/guncel 301
+/support https://msklabs.org/destek 301
+/support/ https://msklabs.org/destek 301
+/releases https://msklabs.org/download 301
+/releases/ https://msklabs.org/download 301
+/releases/* https://msklabs.org/download 301
 /v1/apps https://msklabs.org/apps 301
 /v1/apps/ https://msklabs.org/apps 301
 /v1/apps/* https://msklabs.org/apps 301
