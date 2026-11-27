@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RekatSay — دليل الاستخدام</title>
+  <style>
+    @page { size: A4; margin: 16mm 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      text-align: right;
+    }
+    header {
+      background: #1f3a5f;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { margin: 0 0 4px 0; font-size: 18pt; }
+    header p { margin: 0; font-size: 9pt; opacity: 0.9; }
+    .meta-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .ver-badge {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .intro {
+      background: #f6e6d1;
+      border: 1px solid #dcceb8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    section {
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fafafa;
+      page-break-inside: avoid;
+    }
+    h2 {
+      margin: 0 0 8px 0;
+      font-size: 12pt;
+      color: #1f3a5f;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    ul { margin: 6px 18px 0 0; padding: 0; }
+    li { margin-bottom: 5px; }
+    .ui-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 1px 7px;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #ffffff;
+      background: #1f3a5f;
+      vertical-align: middle;
+    }
+    .ui-btn.stop { background: #dc2626; }
+    .ui-btn.neutral { background: #4b5563; }
+    .ui-btn.green { background: #2e6b34; }
+    .ui-btn.soft { background: #eef2f7; color: #1f3a5f; border: 1px solid #cbd5e1; }
+    code {
+      background: #eef2f7;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 9pt;
+      direction: ltr;
+      unicode-bidi: embed;
+    }
+    footer {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 8.5pt;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>RekatSay — دليل الاستخدام</h1>
+      <p>MSK Labs &bull; الجوال (Android / iOS) &bull; اللغة: AR</p>
+    </div>
+    <div class="meta-badges">
+      <span class="ver-badge">الإصدار: v1.3.2</span>
+      <span class="ver-badge">التاريخ: 27.11.2026</span>
+    </div>
+  </header>
+
+  <div class="intro">
+    يساعدك تطبيق RekatSay على تتبع عدد السجدات والركعات أثناء الصلاة باستخدام مستشعر الإضاءة المحيطة في جهازك.
+  </div>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M8 5v14l11-7z"/></svg>
+      ١. البدء السريع (الجلسة الرئيسية)
+    </h2>
+    <ul>
+      <li><strong>وضع الهاتف:</strong> ضع الهاتف بشكل ثابت أمام سجادة الصلاة أو بجانبها بحيث تكون الشاشة متجهة للأعلى ويغطي ظل رأسك أو جسمك المستشعر أثناء السجود.</li>
+      <li><strong>بدء العد:</strong> اضغط على <span class="ui-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>ابدأ</span> لبدء العد. تُحسب كل دورة اقتراب وابتعاد كـ <code>1 سجدة</code>، وكل <code>سجدتين</code> تُحسبان كـ <code>1 ركعة</code>.</li>
+      <li><strong>الإيقاف المؤقت والتصفير:</strong> <span class="ui-btn stop"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="6" width="12" height="12"/></svg>إنهاء</span> يوقف الجلسة مؤقتاً، <span class="ui-btn">إعادة البدء</span> يواصل العد، و<span class="ui-btn neutral"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>تصفير</span> يعيد العدادات إلى الصفر.</li>
+      <li><strong>الوضع الداكن / الفاتح:</strong> بدّل عبر المفتاح في الزاوية العلوية. للخروج من الوضع الداكن اضغط على المفتاح أو انقر <strong>نقراً مزدوجاً</strong> على الشاشة.</li>
+      <li><strong>رمز المعلومات:</strong> يعرض الرمز <span class="ui-btn soft">i</span> تلميحاً سريعاً حول استخدام الوضع الداكن.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+      ٢. إعدادات العرض العامة
+    </h2>
+    <ul>
+      <li><strong>لغة التطبيق:</strong> بدّل فوراً بين <code>TR / EN / AR</code> من الشريط العلوي في <span class="ui-btn soft">الإعدادات</span>.</li>
+      <li><strong>طريقة عرض الركعة:</strong> اختر عرض <strong>الركعة الحالية</strong> أو <strong>الركعة المكتملة</strong>.</li>
+      <li><strong>حجم الخط والألوان:</strong> عدّل حجم خط عداد الركعات والسجدات وخصص ألوان الخلفية والعناوين والعدادات وأزرار البدء والتصفير.</li>
+      <li><strong>ملاحظة السطوع:</strong> التطبيق لا يغيّر سطوع شاشة جهازك.</li>
+      <li><strong>استعادة الافتراضي:</strong> يعيد جميع الألوان وأحجام الخطوط وتفضيلات العرض إلى حالتها الأولية.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+      ٣. المعايرة وتشخيص المستشعر المباشر
+    </h2>
+    <ul>
+      <li><strong>التشخيص المباشر:</strong> راقب <em>خط الأساس المحيط (lx)</em> و<em>الإضاءة الحية (lx)</em> و<em>النسبة اللحظية (%)</em> و<em>أدنى نسبة (%)</em>.</li>
+      <li><strong>التجربة الحية:</strong> اضغط على <span class="ui-btn">بدء التجربة الحية</span> وقم بسجدة تجريبية للتحقق من انخفاض نسبة الإضاءة بشكل واضح.</li>
+      <li><strong>إعادة تعيين المعايرة:</strong> اضغط على <span class="ui-btn soft">إعادة تعيين المعايرة</span> لقياس خط أساس جديد إذا تغيرت الإضاءة.</li>
+      <li><strong>نتائج التحليل:</strong> راجع قيم <code>Min lx</code> و<code>Max lx</code> و<code>%Drop</code> و<code>%Recovery</code> وانسخها إلى الحافظة. تُسجل البيانات بشكل مجهول فقط خلال الجلسات الناجحة.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44z"/></svg>
+      ٤. الإعدادات المتقدمة (حساسية القياس)
+    </h2>
+    <ul>
+      <li>يُنصح بالاستمرار بالقيم الافتراضية إذا لم تكن متأكداً من الإعدادات التقنية.</li>
+      <li><strong>عتبة السجود (الافتراضي 11.0%):</strong> خفّضها قليلاً إذا كانت الحركات الصغيرة تُحسب؛ وارفعها قليلاً إذا لم تُحسب السجدات الحقيقية.</li>
+      <li><strong>عتبة الحركة الخاطئة (الافتراضي 19.0%):</strong> الحركات التي تبقى فوق هذه العتبة تُعد غير صالحة كالميلان أو الاستناد.</li>
+      <li>يمكن تعديل كلتا العتبتين بخطوات <code>&plusmn;0.5</code> أو إعادتهما بزر <span class="ui-btn soft">الافتراضي</span>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#2e6b34"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+      ٥. الأسئلة الشائعة والنصائح
+    </h2>
+    <ul>
+      <li><strong>تحذير عدم توفر بيانات مستشعر مناسبة:</strong> قد يكون مستشعر الإضاءة محدوداً أو محجوباً بغطاء الهاتف. جرّب زاوية أخرى.</li>
+      <li><strong>موضع مصدر الإضاءة:</strong> تجنب وضع الهاتف مباشرة تحت مصباح لا يتكون عنده ظل؛ ضعه بحيث يغطي ظلك المستشعر أثناء السجود.</li>
+      <li><strong>الوضع الداكن:</strong> يعتّم الشاشة في البيئات المظلمة حتى لا يشتت انتباهك.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#4a3b5c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      ٦. بطاقات الدعم والمعلومات
+    </h2>
+    <ul>
+      <li><strong>يمكنك الدعم:</strong> قسم مخصص للتذكير بالدعاء.</li>
+      <li><span class="ui-btn green">تواصل معنا</span> أرسل طلباتك واقتراحاتك وملاحظاتك عبر نموذج الويب.</li>
+      <li><strong>التحديثات ومعلومات التطبيق:</strong> يعرض الإصدار المثبت ويتيح رابط تنزيل مباشر عند توفر تحديث جديد.</li>
+      <li><strong>تطبيقاتنا الأخرى ومن نحن:</strong> يفتح صفحات الويب الخاصة بتطبيقات MSK Labs وأهداف المشروع.</li>
+    </ul>
+  </section>
+
+  <footer>
+    MSK Labs &bull; RekatSay — دليل الاستخدام (AR) &bull; v1.3.2 &bull; 27.11.2026
+  </footer>
+</body>
+</html>

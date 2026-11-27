@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RekatSay — User Guide</title>
+  <style>
+    @page { size: A4; margin: 16mm 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.55;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f3a5f;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { margin: 0 0 4px 0; font-size: 18pt; }
+    header p { margin: 0; font-size: 9pt; opacity: 0.9; }
+    .meta-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .ver-badge {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .intro {
+      background: #f6e6d1;
+      border: 1px solid #dcceb8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    section {
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fafafa;
+      page-break-inside: avoid;
+    }
+    h2 {
+      margin: 0 0 8px 0;
+      font-size: 12pt;
+      color: #1f3a5f;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin-bottom: 5px; }
+    .ui-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 1px 7px;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #ffffff;
+      background: #1f3a5f;
+      vertical-align: middle;
+    }
+    .ui-btn.stop { background: #dc2626; }
+    .ui-btn.neutral { background: #4b5563; }
+    .ui-btn.green { background: #2e6b34; }
+    .ui-btn.soft { background: #eef2f7; color: #1f3a5f; border: 1px solid #cbd5e1; }
+    code {
+      background: #eef2f7;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 9pt;
+    }
+    footer {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 8.5pt;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>RekatSay — User Guide</h1>
+      <p>MSK Labs &bull; Mobile (Android / iOS) &bull; Language: EN</p>
+    </div>
+    <div class="meta-badges">
+      <span class="ver-badge">Version: v1.3.2</span>
+      <span class="ver-badge">Date: 27.11.2026</span>
+    </div>
+  </header>
+
+  <div class="intro">
+    RekatSay helps you track sajdah and rakah counts during prayer using your device's ambient light sensor.
+  </div>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M8 5v14l11-7z"/></svg>
+      1. Quick Start (Main Session)
+    </h2>
+    <ul>
+      <li><strong>Phone Placement:</strong> Place your phone flat in front of or beside your prayer mat with the screen facing up so your head/body casts a shadow over the sensor during sajdah.</li>
+      <li><strong>Starting:</strong> Tap <span class="ui-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>Start</span> to begin counting. Each approach and return cycle counts as <code>1 Sajdah</code>; every <code>2 Sajdahs</code> count as <code>1 Rakah</code>.</li>
+      <li><strong>Pausing &amp; Resetting:</strong> <span class="ui-btn stop"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="6" width="12" height="12"/></svg>Finish</span> pauses the session, <span class="ui-btn">Restart</span> resumes from where you left off, and <span class="ui-btn neutral"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>Reset</span> clears the counters.</li>
+      <li><strong>Dark / Light Mode:</strong> Toggle using the top-right switch. To exit Dark mode, tap the switch or <strong>double-tap</strong> the screen.</li>
+      <li><strong>Info Icon:</strong> The top-right <span class="ui-btn soft">i</span> icon shows a quick reminder about Dark mode usage.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+      2. General Display Settings
+    </h2>
+    <ul>
+      <li><strong>App Language:</strong> Switch instantly between <code>TR / EN / AR</code> from the top bar in <span class="ui-btn soft">Settings</span>.</li>
+      <li><strong>Rakah Display Mode:</strong> Choose whether the counter displays the <strong>Current Rakah</strong> or <strong>Finished Rakah</strong>.</li>
+      <li><strong>Font Size &amp; Colors:</strong> Adjust Rakah and Sajdah counter sizes and customize Background, Header, Counter, Start, and Reset button colors.</li>
+      <li><strong>Brightness Note:</strong> The app does not change your device's system screen brightness.</li>
+      <li><strong>Reset to Defaults:</strong> Restores all colors, font sizes, and display preferences to their initial state.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+      3. Calibration &amp; Live Sensor Diagnostics
+    </h2>
+    <ul>
+      <li><strong>Live Sensor Diagnostics:</strong> Monitor <em>Ambient Baseline (lx)</em>, <em>Live Light (lx)</em>, <em>Live Ratio (%)</em>, and <em>Lowest Ratio (%)</em> in real time.</li>
+      <li><strong>Live Trial:</strong> Tap <span class="ui-btn">Start Live Trial</span> and perform a test sajdah to verify that the light ratio drops noticeably.</li>
+      <li><strong>Reset Calibration:</strong> Tap <span class="ui-btn soft">Reset Calibration</span> to measure a new baseline if room lighting or phone position changes.</li>
+      <li><strong>Analysis Results:</strong> View <code>Min lx</code>, <code>Max lx</code>, <code>%Drop</code>, and <code>%Recovery</code> for recent records and copy them to your clipboard. Data is recorded anonymously only during successful sessions.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f3a5f"><path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44z"/></svg>
+      4. Advanced Settings (Measurement Sensitivity)
+    </h2>
+    <ul>
+      <li>Using the default values is recommended if you are unsure about technical settings.</li>
+      <li><strong>Sajdah Threshold (Default 11.0%):</strong> Lower slightly if small unrelated movements are counted; raise slightly if real sajdahs are missed.</li>
+      <li><strong>Invalid Move Threshold (Default 19.0%):</strong> Movements remaining above this threshold are treated as invalid (e.g., leaning or support).</li>
+      <li>Both thresholds can be adjusted in <code>&plusmn;0.5</code> steps or restored with the <span class="ui-btn soft">Default</span> button.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#2e6b34"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+      5. FAQ &amp; Tips
+    </h2>
+    <ul>
+      <li><strong>"Suitable sensor data not found" warning:</strong> Your device's ambient light sensor may be limited or blocked by a case/screen protector. Try a different angle.</li>
+      <li><strong>Light source placement:</strong> Avoid placing the phone directly under a lamp where no shadow falls; position it so your shadow covers the sensor during sajdah.</li>
+      <li><strong>Dark Mode:</strong> Dims the screen in low-light environments so the display does not distract you.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#4a3b5c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      6. Support &amp; Info Cards
+    </h2>
+    <ul>
+      <li><strong>You Can Support:</strong> A spiritual prayer reminder section.</li>
+      <li><span class="ui-btn green">Contact Us</span> Send requests, suggestions, and feedback via our web form.</li>
+      <li><strong>Update &amp; App Info:</strong> Displays the installed version and provides a direct download link when a new version is available.</li>
+      <li><strong>Other Apps &amp; About Us:</strong> Opens web pages about MSK Labs applications and project goals.</li>
+    </ul>
+  </section>
+
+  <footer>
+    MSK Labs &bull; RekatSay User Guide (EN) &bull; v1.3.2 &bull; 27.11.2026
+  </footer>
+</body>
+</html>

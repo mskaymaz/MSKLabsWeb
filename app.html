@@ -966,16 +966,29 @@
           'rekatsay': {
             pdf: {
               tr: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_TR.pdf',
-              en: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_EN.pdf',
-              ar: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_AR.pdf'
+              en: 'media/rekatsay/guides/RekatSay_User_Guide_EN.pdf',
+              ar: 'media/rekatsay/guides/RekatSay_User_Guide_AR.pdf'
             },
             html: {
-              tr: 'media/rekatsay/guides/kullanim_kilavuzu_tr.html',
-              en: 'media/rekatsay/guides/kullanim_kilavuzu_en.html',
-              ar: 'media/rekatsay/guides/kullanim_kilavuzu_ar.html'
+              tr: 'media/rekatsay/guides/RekatSay_Kullanim_Kilavuzu_TR.html',
+              en: 'media/rekatsay/guides/RekatSay_User_Guide_EN.html',
+              ar: 'media/rekatsay/guides/RekatSay_User_Guide_AR.html'
+            }
+          },
+          'date_counter': {
+            pdf: {
+              tr: 'media/date-counter/guides/DateCounter_Kullanim_Kilavuzu_TR.pdf',
+              en: 'media/date-counter/guides/DateCounter_User_Guide_EN.pdf',
+              ar: 'media/date-counter/guides/DateCounter_User_Guide_AR.pdf'
+            },
+            html: {
+              tr: 'media/date-counter/guides/DateCounter_Kullanim_Kilavuzu_TR.html',
+              en: 'media/date-counter/guides/DateCounter_User_Guide_EN.html',
+              ar: 'media/date-counter/guides/DateCounter_User_Guide_AR.html'
             }
           }
         };
+        VERIFIED_GUIDES['date-counter'] = VERIFIED_GUIDES['date_counter'];
         var verifiedGuide = VERIFIED_GUIDES[currentApp.id] || null;
         var rawGuide = currentApp.guide_url || currentApp.manual_url || '';
         var guideUrl = (verifiedGuide && verifiedGuide.pdf[activeLang])
@@ -1046,17 +1059,17 @@
             type: 'android'
           },
           'date_counter': {
-            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.1',
             drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cgJpGF6I1u2IuNlMWYaAMH66JO-18EDy',
             drivePass: '571',
-            filename: 'DateCounter_v1.1.0.rar',
+            filename: 'DateCounter-v1.1.1.exe',
             type: 'windows'
           },
           'date-counter': {
-            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.0',
+            cdn: 'https://msklabsdesk-backend.msklabs-org.workers.dev/dl/date_counter/v1.1.1',
             drive: 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cgJpGF6I1u2IuNlMWYaAMH66JO-18EDy',
             drivePass: '571',
-            filename: 'DateCounter_v1.1.0.rar',
+            filename: 'DateCounter-v1.1.1.exe',
             type: 'windows'
           }
         };

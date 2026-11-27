@@ -138,7 +138,7 @@ window.MSK_APPS_DATA = {
       en: "Desktop & Taskbar Time & Goal Tracker",
       ar: "عداد إدارة الوقت والأهداف لسطح المكتب وشريط المهام"
     },
-    version: "1.1.0",
+    version: "1.1.1",
     platform: "Windows Masaüstü",
     rating: "5.0 ⭐",
     summary: {
