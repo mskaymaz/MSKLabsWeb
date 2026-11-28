@@ -664,7 +664,7 @@
       var page = (window.location.pathname || '').toLowerCase();
       if (/\/(ist|pages|dl|404|maintenance|who-we-are|review-route)(\.html)?$/.test(page)) return;
       if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
-      var clientId = (window.SITE_CONFIG && window.SITE_CONFIG.adsenseClientId) || 'ca-pub-8005300749197156';
+      var clientId = (window.SITE_CONFIG && window.SITE_CONFIG.adsenseClientId) || 'ca-pub-2352990136419931';
       var adScript = document.createElement('script');
       adScript.async = true;
       adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(clientId);
