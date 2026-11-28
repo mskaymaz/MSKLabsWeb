@@ -291,8 +291,7 @@
       }
     }
 
-    // Yer tutucu veya Google AdSense içeriği
-    var ph = el.querySelector('.ad-placeholder');
+    // Yer tutucu veya Google AdSense içeriği (onay/slot yoksa boş kutu gösterme, gizle)
     if (ad.ad_client && ad.ad_slot) {
       el.innerHTML = '<ins class="adsbygoogle" style="display:inline-block;width:' +
         (dim.isResponsive ? '100%' : dim.w + 'px') + ';height:' + dim.h + 'px" data-ad-client="' +
@@ -300,17 +299,8 @@
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (_) {}
-    } else if (ph) {
-      ph.style.width = dim.isResponsive ? '100%' : dim.w + 'px';
-      ph.style.maxWidth = '100%';
-      ph.style.height = dim.h + 'px';
-      ph.style.minHeight = dim.h + 'px';
-      ph.style.boxSizing = 'border-box';
-      ph.style.display = 'flex';
-      ph.style.flexDirection = 'column';
-      ph.style.alignItems = 'center';
-      ph.style.justifyContent = 'center';
-      ph.innerHTML = (ad.title || 'Reklam Alanı') + '<br><small>(' + dim.w + 'x' + dim.h + ' px)</small>';
+    } else {
+      collapseElement(el);
     }
   }
 
@@ -410,6 +400,10 @@
       })
       .catch(function (err) {
         console.warn('[MSK Ads Loader] Reklam ayarları yüklenemedi:', err.message);
+        var fallbackNodes = document.querySelectorAll('.desktop-ad, .top-ad-banner, .in-content-ad, .infeed-ad-container, .ad-placeholder');
+        for (var k = 0; k < fallbackNodes.length; k++) {
+          collapseElement(fallbackNodes[k]);
+        }
       });
   }
 

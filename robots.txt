@@ -4,6 +4,8 @@ Disallow: /ist.html
 Disallow: /pages.html
 Disallow: /dl.html
 Disallow: /who-we-are.html
+Disallow: /review-route.html
+Disallow: /maintenance.html
 
 User-agent: Mediapartners-Google
 Allow: /

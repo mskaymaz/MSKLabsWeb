@@ -1,2 +1,2 @@
 # Google AdSense ads.txt for msklabs.org
-google.com, pub-7458139167668436, DIRECT, f08c47fec0942fa0
+google.com, pub-8005300749197156, DIRECT, f08c47fec0942fa0
